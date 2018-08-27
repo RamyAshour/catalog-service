@@ -5,6 +5,8 @@
  */
 package com.joi.api.catalog;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Ramy
@@ -12,4 +14,9 @@ package com.joi.api.catalog;
 public class Global {
   public static final int LANGUAGE_EN=1;
   public static final int LANGUAGE_AR=2;  
+  public static HashMap<String, Integer> stores= new HashMap<String,Integer>();
+  {
+     
+  }
+  
 }

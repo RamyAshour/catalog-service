@@ -7,7 +7,6 @@ package com.joi.api.catalog.help;
 
 import com.joi.api.catalog.dto.mobile.MobileHomePageCategoryDTO;
 import com.joi.api.catalog.dto.mobile.MobileCategoryProductDTO;
-import com.joi.api.catalog.dto.web.SegmentifyChannelDTO;
 import com.joi.api.catalog.entity.ProductFlat;
 import java.util.ArrayList;
 import java.util.Collection;

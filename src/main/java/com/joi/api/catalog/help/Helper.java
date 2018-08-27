@@ -5,6 +5,7 @@
  */
 package com.joi.api.catalog.help;
 
+import com.joi.api.catalog.Global;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -20,4 +21,14 @@ public class Helper {
     Set<Object> seen = ConcurrentHashMap.newKeySet();
     return t -> seen.add(keyExtractor.apply(t));
 }
+    public static int getStoreIdByName(String name){
+        return Global.stores.get(name.toLowerCase());
+    }
+     public static String getStoreNameById(int id){
+        for(String key :Global.stores.keySet()){
+            if(Global.stores.get(key).equals(id))
+                return key;
+        }
+        return "du";
+    }
 }

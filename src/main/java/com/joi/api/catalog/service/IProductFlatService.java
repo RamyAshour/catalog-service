@@ -19,6 +19,13 @@ public interface IProductFlatService {
     List<ProductFlat> getMobileHomePageCatalog(int storeId);
 
     List<ProductFlat> getProductsByCategory(int storeId, int categoryId);
+
     List<ProductFlat> getProductsByStoreId(int storeId);
 
+    List<ProductFlat> getAllByProductId(int productId, int StoreId);
+
+    List<ProductFlat> getProductsBasicDataByStoreIdAndLangugeId(int storeId, int languageId);
+
+    List<String> getCategoriesNameByProductIdAndStoreId(int storeId, int productId, int languageId);
+    List<ProductFlat> getProductsAndCategoriesByStoreId(int storeId);
 }

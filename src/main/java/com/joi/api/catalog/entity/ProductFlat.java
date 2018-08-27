@@ -5,6 +5,7 @@
  */
 package com.joi.api.catalog.entity;
 
+import com.joi.api.catalog.Global;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,6 +58,8 @@ public class ProductFlat {
     private int productDisplayOrder;
     @Column(name = "product_showonhomepage")
     private boolean productShowOnHomePage;
+    @Column(name = "product_slug")
+    private String productSlug;
 
     @Column(name = "category_id")
     private int categoryId;
@@ -74,6 +77,8 @@ public class ProductFlat {
     private boolean categoryShowOnMobileHomePage;
     @Column(name = "category_display_order")
     private int categoryDisplayOrder;
+    @Column(name = "category_slug")
+    private String categorySlug;
 
     @Column(name = "store_id")
     private int storeId;
@@ -84,6 +89,40 @@ public class ProductFlat {
     @Column(name = "creation_date")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date creationDate;
+
+    public ProductFlat() {
+
+    }
+
+    public ProductFlat(int productId, int categoryId, String categoryEnName, String categoryArName) {
+        this.productId = productId;
+        this.categoryId = categoryId;
+        this.categoryEnName = categoryEnName;
+        this.categoryArName = categoryArName;
+    }
+
+    public ProductFlat(Long id, int productId, String productSku, String productName, String productShortDescription, float productPrice, String productPictureUrl,String productSlug, int categoryId, String categoryName, String categoryDescription, int storeId, int languageId) {
+        this.id = id;
+        this.productId = productId;
+        this.productSku = productSku;
+        this.productPrice = productPrice;
+        this.productPictureUrl = productPictureUrl;
+        this.categoryId = categoryId;
+        this.storeId = storeId;
+        this.productSlug=productSlug;
+        if (languageId == Global.LANGUAGE_EN) {
+            this.productEnName = productName;
+            this.productEnShortDescription = productShortDescription;
+            this.categoryEnName = categoryName;
+            this.categoryEnDescription = categoryDescription;
+        } else if (languageId == Global.LANGUAGE_AR) {
+            this.productArName = productName;
+            this.productArShortDescription = productShortDescription;
+            this.categoryArName = categoryName;
+            this.categoryArDescription = categoryDescription;
+        }
+        
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -313,6 +352,22 @@ public class ProductFlat {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getProductSlug() {
+        return productSlug;
+    }
+
+    public void setProductSlug(String productSlug) {
+        this.productSlug = productSlug;
+    }
+
+    public String getCategorySlug() {
+        return categorySlug;
+    }
+
+    public void setCategorySlug(String categorySlug) {
+        this.categorySlug = categorySlug;
     }
 
 }
